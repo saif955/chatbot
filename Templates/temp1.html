@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Chat Room</title>
+  <style>
+    /* CSS styles for chat interface */
+    #chat-container {
+  width: 500px;
+  height: 400px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+}
+
+/* Style for chat messages */
+#chat-messages {
+  height: 300px;
+  overflow-y: auto;
+}
+
+/* Style for individual chat messages */
+.chat-message {
+  margin-bottom: 10px;
+}
+
+.chat-message p {
+  margin: 0;
+}
+
+.chat-message .user {
+  font-weight: bold;
+}
+
+.chat-message .time {
+  font-size: 12px;
+  color: #999;
+  margin-left: 10px;
+}
+
+/* Style for chat form */
+#chat-form {
+  display: flex;
+}
+
+#chat-form input[type="text"] {
+  flex: 1;
+  margin-right: 10px;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+#chat-form button {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#chat-form button:hover {
+  background-color: #3e8e41;
+}
+  </style>
+</head>
+<body>
+  <div id="chat-container">
+    <div id="chat-messages">
+      <p>User1: Hi there!</p>
+      <p>User2: Hey, what's up?</p>
+      
+    </div>
+    <form id="chat-form">
+      <input type="text" placeholder="Type your message here...">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</body>
+</html>
