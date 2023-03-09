@@ -1,18 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.http import HttpRequest
-from .serializers import DrinkSerializer
-from .models import Drink
+
+from chatbotapp.forms import UserInputForm
+from .models import UserInput
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
 import random
 
+
 def homepage(request):
-    return render(request, 'temp1.html', {'number': random.randint(1, 50)})
-
-def doctor(request):
-    return HttpResponse('doctor is not here')
-
-def drink_list(request):
-    drinks= Drink.objects.all()
-    serializer= DrinkSerializer(drinks, many= True)
-    return JsonResponse(serializer.data, safe=False)
- 
+    form = UserInputForm(request.POST)
+    form.save()
+    print(request.POST)
+    return render(request, 'temp1.html', {'form': form})

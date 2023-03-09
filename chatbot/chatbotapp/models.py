@@ -1,9 +1,6 @@
 
 from django.db import models
-
-class Drink(models.Model):
-    Name = models.CharField(max_length=200)
-    description = models.CharField(max_length=500)
-
-    def __str__(self) -> str:
-        return self.Name + ' ' + self.description       
+from django.forms import ModelForm
+     
+class UserInput(models.Model):
+    input = models.CharField(max_length=5000)

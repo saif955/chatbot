@@ -68,13 +68,9 @@
 </head>
 <body>
   <div id="chat-container">
-    <div id="chat-messages">
-      <p>User1: {{ number }}</p>
-      <p>User2: Hey, what's up?</p>
-      
-    </div>
-    <form id="chat-form">
-      <input type="text" placeholder="Type your message here...">
+    <form id="chat-form" method="POST" action="{% url 'upload' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="text" name="input" placeholder="Type your message here...">
       <button type="submit">Send</button>
     </form>
   </div>

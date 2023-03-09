@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'chatbotapp',
     'debug_toolbar',
     'rest_framework',
+    'ckeditor',
+    'widget_tweaks',
     
 ]
 SITE_ID = 1
