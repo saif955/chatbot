@@ -22,14 +22,3 @@ def homepage(request):
         return redirect('upload')
     args = {'text': text, 'form': form, 'posts': posts}
     return render(request, 'temp1.html', args)
-
-
-
-
-   
-      
-
-
-
-
-
