@@ -7,4 +7,4 @@ class UserInputForm(ModelForm):
      input = forms.TextInput()
      class Meta:
           model = UserInput
-          fields = ["input"]
+          fields = [ "input" ]

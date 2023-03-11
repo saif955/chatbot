@@ -1,17 +1,35 @@
-from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
-from django.http import HttpRequest
+from django.shortcuts import render, redirect
 
 from chatbotapp.forms import UserInputForm
-from .models import UserInput
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from rest_framework import status
-import random
+
+from .models import*
 
 
 def homepage(request):
+    text= ' '
+    posts = UserInput.objects.all()
     form = UserInputForm(request.POST)
-    form.save()
-    print(request.POST)
-    return render(request, 'temp1.html', {'form': form})
+    if form.is_valid():
+        form.save()
+        text = form.cleaned_data[ 'input' ]
+        for post in posts:
+            if not post.output:
+                post.output= text
+                post.save()
+            else:
+                continue
+        posts = UserInput.objects.all()
+        return redirect('upload')
+    args = {'text': text, 'form': form, 'posts': posts}
+    return render(request, 'temp1.html', args)
+
+
+
+
+   
+      
+
+
+
+
+

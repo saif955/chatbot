@@ -66,13 +66,25 @@
 }
   </style>
 </head>
+
 <body>
+  
   <div id="chat-container">
+    {% block body %}
+    <div id="chat-messages">
+      {% for p in posts %}
+        <p class="fs-4">{{ p.input }}</p>
+        <p class="fs-4">{{ p.output }}</p>
+      {% endfor %}
+    </div>
+    {% endblock %}
     <form id="chat-form" method="POST" action="{% url 'upload' %}" enctype="multipart/form-data">
       {% csrf_token %}
       <input type="text" name="input" placeholder="Type your message here...">
       <button type="submit">Send</button>
     </form>
   </div>
+  
 </body>
+
 </html>
