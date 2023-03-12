@@ -65,7 +65,7 @@ body {
 }
 
 
-/*
+
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
 
 body {
@@ -77,9 +77,21 @@ body {
   justify-content: center;
   min-height: 100vh;
 }
-*/
+h1 {
+  position: relative;
+  color: hsl(0, 0%, 68%);
+  font-weight: bold;
+  font-family: "Anonymous Pro", monospace;
+  letter-spacing: 7px;
+  overflow: hidden;
+  border-right: 2px solid hsl(0, 0%, 80%);
+  white-space: nowrap;
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+    blinkTextCursor 500ms infinite;
+}
 
-/*
+
+
 
 @keyframes typewriter {
   from {
@@ -97,13 +109,13 @@ body {
     border-right-color: transparent;
   }
 }
-*/
+
 </style>
 </head>
 <body>
-    
+   
   <div class="chatbot-container">
-    <div class="chatbot-message">Hello! </div>
+    <div class="chatbot-message"><h1>Hello!</h1></div>
     <div class="user-message">Hi.</div>
     <div class="chatbot-message">What can I do for you?</div>
     <div class="user-message">Hehe.</div>
