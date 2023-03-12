@@ -1,3 +1,8 @@
+
 from django.db import models
 
-# Create your models here.
+     
+class UserInput(models.Model):
+    input = models.TextField()
+    output = models.TextField()
+

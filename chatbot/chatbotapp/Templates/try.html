@@ -1,0 +1,19 @@
+
+
+{% block body %}
+<div class="container">
+    <div class="col-md-8">
+        <h2>Home</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.post }}
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+        <h2>{{ text }}</h2>
+        {% for post in posts %}
+            <h1>{{ post.input }}</h1>
+            
+        {% endfor %}
+    </div>
+{% endblock %}
