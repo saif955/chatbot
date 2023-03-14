@@ -78,7 +78,7 @@
       {% endfor %}
     </div>
     {% endblock %}
-    <form id="chat-form" method="POST" action="{% url 'upload' %}" enctype="multipart/form-data">
+    <form id="chat-form" method="POST" action="{% url 'post' %}" enctype="multipart/form-data">
       {% csrf_token %}
       <input type="text" name="input" placeholder="Type your message here...">
       <button type="submit">Send</button>
