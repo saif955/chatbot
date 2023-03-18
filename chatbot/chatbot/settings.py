@@ -55,14 +55,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'chatbotapp',
-    'rest_framework',
-    'ckeditor',
-    'widget_tweaks',
-    'corsheaders',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
+    
+    
+   
+    
+  #  'allauth',
+   # 'allauth.account',
+    #'allauth.socialaccount',
+    #'allauth.socialaccount.providers.google',
     
 ]
 
