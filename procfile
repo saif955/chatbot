@@ -1,0 +1,1 @@
+web: gunicorn CSE299.wsgi --log-file -
