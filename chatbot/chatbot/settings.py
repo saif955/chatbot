@@ -23,11 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fu&2x^hf1apmvcw6_o2bhwhz7utihw+k-_0hxw!pich9#x4%@)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+
 
 ALLOWED_HOSTS = [
     '127.0.0.1',    
-
+    'localhost:8000',
+    'f35c-103-221-55-44.in.ngrok.io',
 
     
 ]
@@ -37,10 +39,10 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_CREDENTIALS = True
 
-CSRF_TRUSTED_ORIGINS = ['https://8457-103-221-55-44.in.ngrok.io']
+CSRF_TRUSTED_ORIGINS = ['https://f35c-103-221-55-44.in.ngrok.io']
 
 CORS_ORIGIN_WHITELIST = (
-    ['https://8457-103-221-55-44.in.ngrok.io']
+    ['https://f35c-103-221-55-44.in.ngrok.io']
 )
 
 # Application definition
@@ -55,14 +57,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'chatbotapp',
-    
-    
-   
-    
-  #  'allauth',
-   # 'allauth.account',
-    #'allauth.socialaccount',
-    #'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.google',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     
 ]
 
@@ -78,7 +76,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+  
    
 ]
 
@@ -162,17 +160,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
-        # For each OAuth based provider, either add a ``SocialApp``
-        # (``socialaccount`` app) containing the required client
-        # credentials, or list them here:
         'APP': {
             'client_id': '22376716048-h32ktbqb590c3f2uh3h0p5lvcu3ecl4q.apps.googleusercontent.com',
             'secret': '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',

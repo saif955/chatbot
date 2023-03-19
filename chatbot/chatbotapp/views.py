@@ -8,7 +8,7 @@ from .models import*
 def homepage(request):
     posts = UserInput.objects.all()
     args = { 'posts': posts}
-    return render(request, 'temp1.html', args)
+    return render(request, 'index.html', args)
 
 
 # this takes in data from user and gives out chatbot's output 
