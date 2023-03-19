@@ -9,51 +9,82 @@
 body {
   font-family: Arial, sans-serif;
  
-  background-image: url('https://www.analyticsinsight.net/wp-content/uploads/2020/07/Artificial-Intelligence-Trends.jpeg');
+  background-image: url('https://wallpaperaccess.com/full/6581883.gif');
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
+  height: auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(1.5px);
+  
+  
 }
 
-.chatbot-container {
-  width: auto;
-  margin: 0 auto;
-  border: 1px solid #e20ae2;
+#chat-container {
+  width: 500px;
+  height: 500px;
+  margin-bottom: 10px; 
+  border:  solid #e20ae2;
   padding: 20px;
   border-radius: 5px;
+  text-align: left;
+  position: relative;
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  overflow-y: auto;
+}
+#chat-form1{
+  width: 500px;
+  border:  solid #e20ae2;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left;
+  backdrop-filter: blur(50px);
+  position: absolute;
+  bottom: 120px;
+  
 }
 
 
-.chatbot-message {
+.chat-message {
   background-color: #4cc9ef;
   padding: 10px;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  height: fit-content;
+  
+  position: relative;
+  height: auto;
+  text-align: left;
 }
-
 
 .user-message {
   background-color: #32b626;
   padding: 10px;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  height: fit-content;
+  position: relative;
+  height: auto;
+  text-align: left;
 }
 
+#chat-form {
+  display:flex;
+  align-self: auto;
+  
+}
 
-.input-field {
+#chat-form input[type="text"]{
   width: 100%;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
   margin-top: 10px;
+  flex: 1;
   box-sizing: border-box;
 }
 
-.send-button {
+#chat-form button {
   background-color: #4CAF50;
   color: #fff;
   border: none;
@@ -61,7 +92,8 @@ body {
   border-radius: 25px;
   cursor: pointer;
   margin-top: 10px;
-  margin-left: 100px;
+  
+  
 }
 
 
@@ -87,7 +119,7 @@ h1 {
   border-right: 2px solid hsl(0, 0%, 80%);
   white-space: nowrap;
   animation: typewriter 4s steps(44) 1s 1 normal both,
-    blinkTextCursor 500ms infinite;
+  blinkTextCursor 500ms infinite;
 }
 
 
@@ -112,20 +144,28 @@ h1 {
 
 </style>
 </head>
-<div class="chatbot-container">
 <body>
-    
-  <div class="chatbot-container">
-    <div class="chatbot-message">Hello! </div>
-    <div class="user-message">Hi.</div>
-    <div class="chatbot-message">What can I do for you?</div>
-    <div class="user-message">Hehe.</div>
-    <input type="text" class="input-field" placeholder="Enter your account number">
-    <button class="send-button">Send</button>
-    
+
+  <div id="chat-container">
+    {% block body %}
+      {% for p in posts %}
+        <div class="user-message">{{ p.input }} </div>
+        <div class="chat-message">{{ p.output }}</div>
+      {% endfor %}
+    {% endblock %} 
+  </div>
+  <div id="chat-form1">
+    <form id="chat-form" method="POST" action="{% url 'post' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="text" name="input" placeholder="Type your message here...">
+      <button type="submit">Send</button>
+    </form>   
+  </div>
+  
 
   
-</body>
-</div>
+
+
+  
 </body>
 </html>
