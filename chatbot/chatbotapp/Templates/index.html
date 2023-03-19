@@ -22,9 +22,8 @@ body {
 #chat-container {
   width: 500px;
   height: 500px;
-  margin-bottom: 10px; 
-  border:  solid #e20ae2;
-  padding: 20px;
+  
+  border:  solid #0a20e277;
   border-radius: 5px;
   text-align: left;
   position: relative;
@@ -34,7 +33,7 @@ body {
 }
 #chat-form1{
   width: 500px;
-  border:  solid #e20ae2;
+  border:  solid #0ac2e27e;
   padding: 10px;
   border-radius: 5px;
   text-align: left;
@@ -49,22 +48,21 @@ body {
   background-color: #4cc9ef;
   padding: 10px;
   border-radius: 5px;
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   height: fit-content;
-  
+ 
   position: relative;
-  height: auto;
   text-align: left;
 }
 
 .user-message {
   background-color: #32b626;
   padding: 10px;
-  border-radius: 5px;
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   height: fit-content;
   position: relative;
-  height: auto;
   text-align: left;
 }
 
@@ -80,6 +78,7 @@ body {
   border-radius: 5px;
   border: 1px solid #ccc;
   margin-top: 10px;
+  margin-left: 10px;
   flex: 1;
   box-sizing: border-box;
 }
@@ -92,7 +91,7 @@ body {
   border-radius: 25px;
   cursor: pointer;
   margin-top: 10px;
-  
+  margin-left: 10px;
   
 }
 
@@ -109,12 +108,12 @@ body {
   justify-content: center;
   min-height: 100vh;
 }
-h1 {
+p {
   position: relative;
   color: hsl(0, 0%, 68%);
   font-weight: bold;
   font-family: "Anonymous Pro", monospace;
-  letter-spacing: 7px;
+  letter-spacing: 1px;
   overflow: hidden;
   border-right: 2px solid hsl(0, 0%, 80%);
   white-space: nowrap;
@@ -149,7 +148,7 @@ h1 {
   <div id="chat-container">
     {% block body %}
       {% for p in posts %}
-        <div class="user-message">{{ p.input }} </div>
+        <div class="user-message">{{ p.input }}</div>
         <div class="chat-message">{{ p.output }}</div>
       {% endfor %}
     {% endblock %} 
