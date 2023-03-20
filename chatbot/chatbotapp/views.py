@@ -3,6 +3,7 @@ from chatbotapp.forms import UserInputForm
 from .models import*
 from django.contrib.auth import logout
 
+#homepage
 def home(request):
         if request.user.is_authenticated:
             return redirect('upload')
@@ -10,7 +11,7 @@ def home(request):
             return render(request, 'signin_page.html')
         
 
-
+#lougout
 def logout_view(request):
     logout(request)
     return redirect('signin')
