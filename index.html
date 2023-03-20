@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nippy Chatbot</title>
+  <link rel="stylesheet" href="styles.css">
+  <style> 
+
+body {
+  font-family: Arial, sans-serif;
+ 
+  background-image: url('https://wallpaperaccess.com/full/6581883.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: auto;
+  display: flex;
+  
+  
+}
+
+#chat-container {
+  width: 500px;
+  height: 500px;
+  
+  border:  solid #0a20e277;
+  border-radius: 5px;
+  text-align: left;
+  position: relative;
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  overflow-y: auto;
+}
+
+#container {
+  top: 80px;
+  width: auto;
+  text-align: center;
+  height: auto;
+  position: absolute;
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  overflow-y: auto;
+}
+
+#chat-form1{
+  width: 500px;
+  border:  solid #0ac2e27e;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left;
+  backdrop-filter: blur(50px);
+  position: absolute;
+  bottom: 120px;
+  
+}
+
+
+.chat-message {
+  background-color: #4cc9ef;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: fit-content;
+  position: relative;
+  text-align: left;
+}
+
+.user-message {
+  background-color: #32b626;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: fit-content;
+  position: relative;
+  text-align: left;
+}
+
+#chat-form {
+  display:flex;
+  align-self: auto;
+  
+}
+
+#chat-form input[type="text"]{
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  margin-left: 10px;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+ button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 10px;
+  
+}
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+p {
+  position: relative;
+  color: hsl(0, 8%, 5%);
+  font-weight: bold;
+  font-family: "Anonymous Pro", monospace;
+  letter-spacing: 1px;
+  overflow: hidden;
+  border-right: 2px solid hsl(0, 0%, 80%);
+  white-space: nowrap;
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+  blinkTextCursor 500ms infinite;
+}
+
+
+
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 710px;
+  }
+}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: hsl(0, 0%, 80%);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+
+</style>
+</head>
+<body>
+  <div id="container">
+    {% load socialaccount %}
+      {% if user.is_authenticated %}
+      <p>You are signed in as {{user.email}}</p>
+      
+      <button type="submit"><a href="logout">logout</a></button>
+      {% endif %}
+  </div>
+
+  <div id="chat-container">
+    
+    {% block body %}
+      {% for p in posts %}
+        <div class="user-message">{{ p.input }}</div>
+        <div class="chat-message">{{ p.output }}</div>
+      {% endfor %}
+    {% endblock %} 
+  </div>
+  <div id="chat-form1">
+    <form id="chat-form" method="POST" action="{% url 'post' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="text" name="input" placeholder="Type your message here...">
+      <button type="submit">Send</button>
+    </form>   
+  </div>
+
+  
+
+  
+
+
+  
+</body>
+</html>
