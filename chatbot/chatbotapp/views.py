@@ -1,11 +1,24 @@
 from django.shortcuts import render, redirect
-
 from chatbotapp.forms import UserInputForm
-
 from .models import*
+from django.contrib.auth import logout
+
+def home(request):
+        if request.user.is_authenticated:
+            return redirect('upload')
+        else:
+            return render(request, 'signin_page.html')
+        
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('signin')
+
+
 
 # this directs to the homepage of chatbot
-def homepage(request):
+def chat_homepage(request):
     posts = UserInput.objects.all()
     args = { 'posts': posts}
     return render(request, 'index.html', args)

@@ -31,6 +31,18 @@ body {
   padding: 10px;
   overflow-y: auto;
 }
+
+#container {
+  top: 80px;
+  width: auto;
+  text-align: center;
+  height: auto;
+  position: absolute;
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  overflow-y: auto;
+}
+
 #chat-form1{
   width: 500px;
   border:  solid #0ac2e27e;
@@ -83,7 +95,7 @@ body {
   box-sizing: border-box;
 }
 
-#chat-form button {
+ button {
   background-color: #4CAF50;
   color: #fff;
   border: none;
@@ -110,7 +122,7 @@ body {
 }
 p {
   position: relative;
-  color: hsl(0, 0%, 68%);
+  color: hsl(0, 8%, 5%);
   font-weight: bold;
   font-family: "Anonymous Pro", monospace;
   letter-spacing: 1px;
@@ -144,8 +156,17 @@ p {
 </style>
 </head>
 <body>
+  <div id="container">
+    {% load socialaccount %}
+      {% if user.is_authenticated %}
+      <p>You are signed in as {{user.email}}</p>
+      
+      <button type="submit"><a href="logout">logout</a></button>
+      {% endif %}
+  </div>
 
   <div id="chat-container">
+    
     {% block body %}
       {% for p in posts %}
         <div class="user-message">{{ p.input }}</div>
@@ -160,6 +181,7 @@ p {
       <button type="submit">Send</button>
     </form>   
   </div>
+
   
 
   

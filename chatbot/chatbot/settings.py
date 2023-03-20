@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',    
-    'localhost:8000',
+    'localhost',
     'f35c-103-221-55-44.in.ngrok.io',
 
     
@@ -64,6 +64,16 @@ INSTALLED_APPS = [
     
 ]
 
+SOCIALACCOUNT_PROVIDERS= {
+    "google":{
+        "SCOPE":[
+            "profile",
+            "email"
+        ],
+
+        "AUTH_PARAMS":{"access_type": "online"}
+    }
+}
 SITE_ID = 1
 
 MIDDLEWARE = [
@@ -116,14 +126,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-AUTHENTICATION_BACKENDS = [
-    
-  
-    'django.contrib.auth.backends.ModelBackend',
 
-    'allauth.account.auth_backends.AuthenticationBackend',
-    
-]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -165,15 +168,15 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
+AUTHENTICATION_BACKENDS = [
+    
+  
+    'django.contrib.auth.backends.ModelBackend',
 
+    'allauth.account.auth_backends.AuthenticationBackend',
+    
+]
 
-
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'APP': {
-            'client_id': '22376716048-h32ktbqb590c3f2uh3h0p5lvcu3ecl4q.apps.googleusercontent.com',
-            'secret': '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',
-            'key': ''
-        }
-    }
-}
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+SOCIALACCOUNT_LOGIN_ON_GET=True
