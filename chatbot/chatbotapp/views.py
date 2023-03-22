@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from chatbotapp.forms import UserInputForm
 from .models import*
 from django.contrib.auth import logout
-
 #homepage
 def home(request):
         if request.user.is_authenticated:
@@ -14,15 +13,18 @@ def home(request):
 #lougout
 def logout_view(request):
     logout(request)
-    return redirect('signin')
+    return render(request, 'signin_page.html')
 
 
 
 # this directs to the homepage of chatbot
 def chat_homepage(request):
-    posts = UserInput.objects.all()
-    args = { 'posts': posts}
-    return render(request, 'index.html', args)
+    if request.user.is_authenticated:
+        posts = UserInput.objects.all()
+        args = { 'posts': posts}
+        return render(request, 'index.html', args)
+    else:
+        return render(request, 'signin_page.html')
 
 
 # this takes in data from user and gives out chatbot's output 
