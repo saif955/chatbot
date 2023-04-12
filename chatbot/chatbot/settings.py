@@ -29,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',    
     'localhost',
-    '888c-103-221-55-44.in.ngrok.io',
+    'ccd0-103-221-55-58.ngrok-free.app',
 
     
 ]
@@ -39,10 +39,10 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_CREDENTIALS = True
 
-CSRF_TRUSTED_ORIGINS = ['https://888c-103-221-55-44.in.ngrok.io']
+CSRF_TRUSTED_ORIGINS = ['https://ccd0-103-221-55-58.ngrok-free.app']
 
 CORS_ORIGIN_WHITELIST = (
-    ['https://888c-103-221-55-44.in.ngrok.io']
+    ['https://ccd0-103-221-55-58.ngrok-free.app']
 )
 
 # Application definition
