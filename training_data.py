@@ -11,7 +11,6 @@ for timeframe in timeframes:
     cur_length = limit
     counter = 0
     test_done = False
-
     while cur_length == limit:
 
         df = pd.read_sql('SELECT * FROM parent_reply WHERE unix > {} and parent NOT NULL and score > 0 ORDER BY unix ASC LIMIT {}'.format(last_unix,limit),connection)
