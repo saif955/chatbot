@@ -29,8 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',    
     'localhost',
-    'bdfb-103-221-55-58.ngrok-free.app',
-    '9011-103-221-55-59.ngrok-free.app'
+  '4714-103-221-55-59.ngrok-free.app'
 
     
 ]
@@ -40,10 +39,10 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_CREDENTIALS = True
 
-CSRF_TRUSTED_ORIGINS = ['https://bdfb-103-221-55-58.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://4714-103-221-55-59.ngrok-free.app']
 
 CORS_ORIGIN_WHITELIST = (
-    ['https://bdfb-103-221-55-58.ngrok-free.app']
+    ['https://4714-103-221-55-59.ngrok-free.app']
 )
 
 # Application definition
